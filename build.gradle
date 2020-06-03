@@ -1,0 +1,30 @@
+plugins {
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+}
+
+ext {
+	SPRING_VERSION = '2.3.0.RELEASE'
+}
+
+allprojects {
+	repositories {
+		mavenCentral()
+	}
+}
+
+subprojects {
+	apply plugin: 'java'
+	apply plugin: 'io.spring.dependency-management'
+	apply plugin: 'java-library'
+
+	group = 'wg'
+	version = '0.0.1-SNAPSHOT'
+	sourceCompatibility = '14'
+
+	dependencyManagement {
+		imports {
+			mavenBom("org.springframework.boot:spring-boot-dependencies:${SPRING_VERSION}")
+		}
+	}
+}
+
