@@ -10,12 +10,4 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
     compile "org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:${EUREKA_VERSION}"
     compile "org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:${EUREKA_VERSION}"
-
-    testImplementation('org.springframework.boot:spring-boot-starter-test') {
-        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-    }
-}
-
-test {
-    useJUnitPlatform()
 }
