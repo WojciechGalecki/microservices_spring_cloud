@@ -1,0 +1,15 @@
+plugins {
+    id 'org.springframework.boot' version '2.3.0.RELEASE'
+}
+
+ext {
+    SPRING_CLOUD_VERSION = '2.2.3.RELEASE'
+    SPRING_VERSION = '2.3.0.RELEASE'
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    compile "org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:${SPRING_CLOUD_VERSION}"
+    compile "org.springframework.boot:spring-boot-starter-web:${SPRING_VERSION}"
+    compile "org.springframework.cloud:spring-cloud-starter-netflix-zuul:${SPRING_CLOUD_VERSION}"
+}
