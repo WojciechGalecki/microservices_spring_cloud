@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import wg.user.model.CreateUser;
 import wg.user.service.UserService;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @RestController

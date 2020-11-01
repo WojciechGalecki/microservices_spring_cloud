@@ -13,7 +13,8 @@ dependencies {
     compile "org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:${EUREKA_VERSION}"
     compile "org.springframework.boot:spring-boot-starter-web:${SPRING_VERSION}"
     compile "org.springframework.boot:spring-boot-starter-data-jpa:${SPRING_VERSION}"
-    compileOnly "org.projectlombok:lombok:1.18.16"
+    compile "org.springframework.boot:spring-boot-starter-security:${SPRING_VERSION}"
+    compileOnly "org.projectlombok:lombok:${LOMBOK_VERSION}"
     annotationProcessor "org.projectlombok:lombok:${LOMBOK_VERSION}"
     compile "org.modelmapper:modelmapper:2.3.8"
     compile "org.postgresql:postgresql:42.2.18"
@@ -21,8 +22,8 @@ dependencies {
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
-    //testCompileOnly "org.projectlombok:lombok:${LOMBOK_VERSION}"
-    //testAnnotationProcessor "org.projectlombok:lombok:${LOMBOK_VERSION}"
+    testCompileOnly "org.projectlombok:lombok:${LOMBOK_VERSION}"
+    testAnnotationProcessor "org.projectlombok:lombok:${LOMBOK_VERSION}"
 }
 
 test {
