@@ -11,3 +11,17 @@ eureka:
       defaultZone: http://localhost:8000/eureka
   instance:
     hostname: localhost
+
+api:
+  login:
+    urlPath: /user-service/users/login
+  registration:
+    urlPath: /user-service/users
+
+authorization:
+  token:
+    headerName: Authorization
+    headerPrefix: Bearer
+
+token:
+  secret: hadfsvqwetr3743b2hg5r

@@ -1,6 +1,5 @@
 package wg.user.security;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -40,7 +39,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private AuthenticationFilter getAuthenticationFilter() throws Exception {
         AuthenticationFilter authFilter = new AuthenticationFilter(userService, env, authenticationManager());
         // default is <service>/login
-        authFilter.setFilterProcessesUrl(env.getProperty("login.url.path"));
+        authFilter.setFilterProcessesUrl(env.getProperty("login.urlPath"));
         return authFilter;
     }
 }

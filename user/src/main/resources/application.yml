@@ -31,5 +31,4 @@ token:
   secret: hadfsvqwetr3743b2hg5r
 
 login:
-  url:
-    path: /users/login
+  urlPath: /users/login
