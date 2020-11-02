@@ -9,7 +9,7 @@ import javax.validation.constraints.Size;
 
 @Getter
 @Setter
-public class CreateUser {
+public class UserDetails {
     @NotNull
     @Size(min = 2)
     private String firstName;

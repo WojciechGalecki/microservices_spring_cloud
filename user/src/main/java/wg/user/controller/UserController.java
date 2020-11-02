@@ -3,10 +3,9 @@ package wg.user.controller;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import wg.user.model.CreateUser;
+import wg.user.model.UserDetails;
 import wg.user.service.UserService;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @RestController
@@ -27,7 +26,7 @@ public class UserController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void createUser(@Valid @RequestBody CreateUser userDetails) {
+    public void createUser(@Valid @RequestBody UserDetails userDetails) {
         userService.createUser(userDetails);
     }
 }

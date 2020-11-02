@@ -25,3 +25,11 @@ eureka:
 
 gateway:
   ip: 127.0.0.1
+
+token:
+  expirationTime: 864000000 # 10 days
+  secret: hadfsvqwetr3743b2hg5r
+
+login:
+  url:
+    path: /users/login
