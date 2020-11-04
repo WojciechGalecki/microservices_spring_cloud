@@ -1,0 +1,14 @@
+server:
+  port: 8002
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          url: https://github.com/WojciechGalecki/microservices_spring_cloud_configuration
+          username:
+          password:
+          clone-on-start: true
