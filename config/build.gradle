@@ -4,4 +4,6 @@ plugins {
 
 dependencies {
     compile "org.springframework.cloud:spring-cloud-config-server:2.2.5.RELEASE"
+    compile "org.springframework.boot:spring-boot-starter-actuator:2.3.5.RELEASE"
+    compile "org.springframework.cloud:spring-cloud-starter-bus-amqp:2.2.3.RELEASE"
 }

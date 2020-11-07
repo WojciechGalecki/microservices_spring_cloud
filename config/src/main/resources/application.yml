@@ -13,3 +13,14 @@ spring:
           password:
           clone-on-start: true
           skipSslValidation: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+    usename: guest
+    password: guest
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh

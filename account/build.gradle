@@ -11,6 +11,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
     compile "org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:${EUREKA_VERSION}"
     compile "org.springframework.boot:spring-boot-starter-web:${SPRING_VERSION}"
+    compile "org.springframework.cloud:spring-cloud-starter-bus-amqp:2.2.3.RELEASE"
 
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'

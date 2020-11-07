@@ -19,9 +19,11 @@ public class UserController {
         this.env = env;
     }
 
-    @GetMapping("/demo")
-    public String demo() {
-        return "Working on port: " + env.getProperty("local.server.port");
+    @GetMapping("/status")
+    public String status() {
+        return String.format("Working on port: %s with token: %s",
+                env.getProperty("local.server.port"),
+                env.getProperty("token.secret"));
     }
 
     @PostMapping

@@ -20,5 +20,5 @@ build/
 *.ipr
 out/
 
-### db ###
-db/volume
+### volumes ###
+volumes/**
