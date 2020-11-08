@@ -1,12 +1,17 @@
 server:
-  port: 8010
+  port: 8888
 
 spring:
   application:
     name: config-server
+  profiles:
+    active: native
+    #active: git
   cloud:
     config:
       server:
+        native:
+          search-loacations: file://${user.home}/personal/spring/microservices_native_config
         git:
           uri: https://github.com/WojciechGalecki/microservices_spring_cloud_configuration
           username:

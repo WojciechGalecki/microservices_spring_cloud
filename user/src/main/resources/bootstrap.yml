@@ -3,5 +3,5 @@ spring:
    # active: dev
   cloud:
     config:
-      uri: http://localhost:8010
+      uri: http://localhost:8888
       name: config-server
