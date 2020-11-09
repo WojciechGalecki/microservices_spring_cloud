@@ -22,6 +22,12 @@ api:
     urlPath: /user-service/users/login
   registration:
     urlPath: /user-service/users
+  zuul:
+    actuator:
+      urlPath: /actuator/*
+  user:
+    actuator:
+      urlPath: /user-service/actuator/*
 
 authorization:
   token:
@@ -30,3 +36,9 @@ authorization:
 
 token:
   secret: hadfsvqwetr3743b2hg5r
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: beans,health,routes

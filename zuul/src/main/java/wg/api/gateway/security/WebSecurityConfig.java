@@ -23,6 +23,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers(HttpMethod.POST, env.getProperty("api.registration.urlPath")).permitAll()
                 .antMatchers(HttpMethod.POST, env.getProperty("api.login.urlPath")).permitAll()
+                .antMatchers(env.getProperty("api.zuul.actuator.urlPath")).permitAll()
+                .antMatchers(env.getProperty("api.user.actuator.urlPath")).permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .addFilter(new AuthorizationFilter(authenticationManager(), env));
