@@ -1,0 +1,29 @@
+plugins {
+    id 'org.springframework.boot' version '2.3.0.RELEASE'
+}
+
+ext {
+    EUREKA_VERSION = '2.2.3.RELEASE'
+    SPRING_VERSION = '2.3.0.RELEASE'
+    LOMBOK_VERSION = '1.18.16'
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    compile "org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:${EUREKA_VERSION}"
+    compile "org.springframework.boot:spring-boot-starter-web:${SPRING_VERSION}"
+    compile "org.springframework.boot:spring-boot-starter-actuator:2.3.5.RELEASE"
+    compileOnly "org.projectlombok:lombok:${LOMBOK_VERSION}"
+    annotationProcessor "org.projectlombok:lombok:${LOMBOK_VERSION}"
+    compile "org.modelmapper:modelmapper:2.3.8"
+
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+    testCompileOnly "org.projectlombok:lombok:${LOMBOK_VERSION}"
+    testAnnotationProcessor "org.projectlombok:lombok:${LOMBOK_VERSION}"
+}
+
+test {
+    useJUnitPlatform()
+}

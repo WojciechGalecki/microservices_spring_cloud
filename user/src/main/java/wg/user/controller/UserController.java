@@ -4,6 +4,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import wg.user.model.UserDetails;
+import wg.user.model.UserResponse;
 import wg.user.service.UserService;
 
 import javax.validation.Valid;
@@ -30,5 +31,11 @@ public class UserController {
     @ResponseStatus(HttpStatus.CREATED)
     public void createUser(@Valid @RequestBody UserDetails userDetails) {
         userService.createUser(userDetails);
+    }
+
+    @GetMapping("/{userId}")
+    @ResponseStatus(HttpStatus.OK)
+    public UserResponse getUser(@PathVariable String userId) {
+        return userService.getUser(userId);
     }
 }

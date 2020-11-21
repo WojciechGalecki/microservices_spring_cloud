@@ -38,6 +38,9 @@ token:
 login:
   urlPath: /users/login
 
+albums:
+  url: http://ALBUM-SERVICE/users/%s/albums
+
 management:
   endpoints:
     web:
