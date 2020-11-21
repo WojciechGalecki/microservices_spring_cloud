@@ -51,3 +51,7 @@ management:
 logging:
   level:
     wg.user.client.AlbumServiceClient: DEBUG
+
+feign:
+  hystrix:
+    enabled: true
