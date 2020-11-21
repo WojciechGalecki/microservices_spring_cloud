@@ -13,7 +13,7 @@ spring:
     show-sql: false
     generate-ddl: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
   rabbitmq:
     host: localhost
     port: 5672
@@ -46,3 +46,8 @@ management:
     web:
       exposure:
         include: mappings
+
+# logging for Feign Clients
+logging:
+  level:
+    wg.user.client.AlbumServiceClient: DEBUG

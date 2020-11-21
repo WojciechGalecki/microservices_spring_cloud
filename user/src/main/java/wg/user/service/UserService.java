@@ -2,24 +2,18 @@ package wg.user.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
+import wg.user.client.AlbumServiceClient;
 import wg.user.data.UserEntity;
 import wg.user.data.UserRepository;
-import wg.user.model.AlbumResponse;
 import wg.user.model.UserDetails;
 import wg.user.model.UserResponse;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -28,19 +22,20 @@ public class UserService implements UserDetailsService {
     private final ModelMapper modelMapper;
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder passwordEncoder;
-    private final RestTemplate restTemplate;
+    //private final RestTemplate restTemplate;
+    private final AlbumServiceClient albumServiceClient;
 
-    @Value("${albums.url}")
-    private String albumUrl;
+    //@Value("${albums.url}")
+    //private String albumUrl;
 
     public UserService(ModelMapper modelMapper,
                        UserRepository userRepository,
                        BCryptPasswordEncoder passwordEncoder,
-                       RestTemplate restTemplate) {
+                       AlbumServiceClient albumServiceClient) {
         this.modelMapper = modelMapper;
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
-        this.restTemplate = restTemplate;
+        this.albumServiceClient = albumServiceClient;
     }
 
     public void createUser(UserDetails userDetails) {
@@ -67,7 +62,8 @@ public class UserService implements UserDetailsService {
             throw new UsernameNotFoundException(userId);
         }
         UserResponse userResponse = modelMapper.map(userEntity, UserResponse.class);
-        userResponse.setAlbums(getAlbums(userId));
+        //userResponse.setAlbums(getAlbums(userId));
+        userResponse.setAlbums(albumServiceClient.getAlbums(userId));
         log.info("Successfully fetched user with id: {}", userId);
         return userResponse;
     }
@@ -87,14 +83,14 @@ public class UserService implements UserDetailsService {
                 new ArrayList<>());
     }
 
-    private List<AlbumResponse> getAlbums(String userId) {
-        ResponseEntity<List<AlbumResponse>> responseEntity = restTemplate.exchange(
-                String.format(albumUrl, userId),
-                HttpMethod.GET,
-                null,
-                new ParameterizedTypeReference<>() {
-                }
-        );
-        return responseEntity.getBody();
-    }
+//    private List<AlbumResponse> getAlbums(String userId) {
+//        ResponseEntity<List<AlbumResponse>> responseEntity = restTemplate.exchange(
+//                String.format(albumUrl, userId),
+//                HttpMethod.GET,
+//                null,
+//                new ParameterizedTypeReference<>() {
+//                }
+//        );
+//        return responseEntity.getBody();
+//    }
 }

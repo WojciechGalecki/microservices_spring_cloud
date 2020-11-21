@@ -17,6 +17,7 @@ dependencies {
     compile "org.springframework.cloud:spring-cloud-starter-config:2.2.5.RELEASE"
     compile "org.springframework.cloud:spring-cloud-starter-bus-amqp:2.2.3.RELEASE"
     compile "org.springframework.boot:spring-boot-starter-actuator:2.3.5.RELEASE"
+    compile "org.springframework.cloud:spring-cloud-starter-openfeign:2.2.6.RELEASE"
     compileOnly "org.projectlombok:lombok:${LOMBOK_VERSION}"
     annotationProcessor "org.projectlombok:lombok:${LOMBOK_VERSION}"
     compile "org.modelmapper:modelmapper:2.3.8"
