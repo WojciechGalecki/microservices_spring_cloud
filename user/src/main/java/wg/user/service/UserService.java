@@ -63,7 +63,9 @@ public class UserService implements UserDetailsService {
         }
         UserResponse userResponse = modelMapper.map(userEntity, UserResponse.class);
         //userResponse.setAlbums(getAlbums(userId));
+        log.info("Trying to fetch albums for user with id: {}", userId);
         userResponse.setAlbums(albumServiceClient.getAlbums(userId));
+        log.info("Successfully fetched albums for user with id: {}", userId);
         log.info("Successfully fetched user with id: {}", userId);
         return userResponse;
     }

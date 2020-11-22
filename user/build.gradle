@@ -3,22 +3,23 @@ plugins {
 }
 
 ext {
-    EUREKA_VERSION = '2.2.3.RELEASE'
+    SPRING_CLOUD_VERSION = '2.2.6.RELEASE'
     SPRING_VERSION = '2.3.0.RELEASE'
     LOMBOK_VERSION = '1.18.16'
 }
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
-    compile "org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:${EUREKA_VERSION}"
+    compile "org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:2.2.3.RELEASE"
     compile "org.springframework.boot:spring-boot-starter-web:${SPRING_VERSION}"
     compile "org.springframework.boot:spring-boot-starter-data-jpa:${SPRING_VERSION}"
     compile "org.springframework.boot:spring-boot-starter-security:${SPRING_VERSION}"
     compile "org.springframework.cloud:spring-cloud-starter-config:2.2.5.RELEASE"
     compile "org.springframework.cloud:spring-cloud-starter-bus-amqp:2.2.3.RELEASE"
     compile "org.springframework.boot:spring-boot-starter-actuator:2.3.5.RELEASE"
-    compile "org.springframework.cloud:spring-cloud-starter-openfeign:2.2.6.RELEASE"
-    compile "org.springframework.cloud:spring-cloud-starter-netflix-hystrix:2.2.6.RELEASE"
+    compile "org.springframework.cloud:spring-cloud-starter-openfeign:${SPRING_CLOUD_VERSION}"
+    compile "org.springframework.cloud:spring-cloud-starter-netflix-hystrix:${SPRING_CLOUD_VERSION}"
+    compile "org.springframework.cloud:spring-cloud-sleuth-zipkin:${SPRING_CLOUD_VERSION}"
     compileOnly "org.projectlombok:lombok:${LOMBOK_VERSION}"
     annotationProcessor "org.projectlombok:lombok:${LOMBOK_VERSION}"
     compile "org.modelmapper:modelmapper:2.3.8"
