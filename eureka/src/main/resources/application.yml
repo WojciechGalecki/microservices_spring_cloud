@@ -4,6 +4,10 @@ server:
 spring:
   application:
     name: eureka-discovery-service
+  security:
+    user:
+      name: eureka
+      password: eureka
 
 eureka:
   client:
