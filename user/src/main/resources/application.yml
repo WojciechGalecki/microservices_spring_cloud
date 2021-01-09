@@ -54,10 +54,10 @@ management:
       exposure:
         include: mappings
 
-# logging for Feign Clients
 logging:
   level:
-    wg.user.client.AlbumServiceClient: DEBUG
+    wg.user.client.AlbumServiceClient: DEBUG # for Feign Clients
+  file: ${spring.application.name}.log
 
 feign:
   hystrix:
