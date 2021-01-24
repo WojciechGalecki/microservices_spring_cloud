@@ -2,6 +2,8 @@ package wg.user.controller;
 
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import wg.user.model.UserDetails;
 import wg.user.model.UserResponse;
@@ -34,6 +36,8 @@ public class UserController {
     }
 
     @GetMapping("/{userId}")
+    @PreAuthorize("principal == #userId")
+    //@PostAuthorize("principal == returnObject.userId")
     @ResponseStatus(HttpStatus.OK)
     public UserResponse getUser(@PathVariable String userId) {
         return userService.getUser(userId);

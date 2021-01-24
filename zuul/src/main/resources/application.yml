@@ -37,6 +37,9 @@ authorization:
 token:
   secret: hadfsvqwetr3743b2hg5r
 
+zuul:
+  sensitiveHeaders: Cookie,Set-Cookie,Authorization
+
 management:
   endpoints:
     web:
